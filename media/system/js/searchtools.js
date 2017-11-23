@@ -110,7 +110,7 @@
 				self.filterButton.addEventListener('click', function(e) {
 					self.toggleFilters();
 					e.stopPropagation();
-					e.preventDefault();				
+					e.preventDefault();
 				});
 			}
 
@@ -196,6 +196,10 @@
 		clear: function () {
 			var self = this;
 
+			if (self.searchField) {
+			    self.searchField.value = '';
+			}
+
 			if (self.getFilterFields()) {
 				self.getFilterFields().forEach(function(i) {
 					i.value = '';
@@ -243,7 +247,7 @@
 			var chosenId = '#' + element.getAttribute('id');
 			var tmpEl = element.querySelector(chosenId);
 			if (tmpEl) {
-				tmpEl.classList.add('active');	
+				tmpEl.classList.add('active');
 			}
 		},
 		deactiveFilter: function (element, cont) {
